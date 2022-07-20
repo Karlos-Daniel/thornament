@@ -5,6 +5,7 @@ import juegosRoutes from "./juego.routes";
 import rolRoutes from "./rol.routes";
 import usuarioRoutes from "./usuario.routes";
 import sorteoRoutes from "./sorteo.routes";
+import torneoRoutes from "./usuario.routes"
 const app=Express();
 
 //settings
@@ -26,6 +27,7 @@ app.use(juegosRoutes);
 app.use(rolRoutes);
 app.use(usuarioRoutes);
 app.use(sorteoRoutes);
+app.use(torneoRoutes);
 
 
 export default app;

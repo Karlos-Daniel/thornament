@@ -59,6 +59,10 @@ const updateUsuario=async(request,response)=>{
         const usuario ={nombre1,nombre2,apellido1,apellido2,email,cumple,celular,contra};
         const connection=await getConnection();
 
+        if(nombre2=""){
+            nombre2="null";
+        }
+
         const result = await connection.query(`UPDATE usuario SET nombre1="${nombre1}",nombre2="${nombre2}",apellido1="${apellido1}",apellido2="${apellido2}",email="${email}",cumple="${cumple}",celular="${celular}",contra="${contra}" WHERE idusuario="${id}";`);
         response.json(result);
     }catch(error){
