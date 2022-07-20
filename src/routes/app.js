@@ -5,7 +5,6 @@ import juegosRoutes from "./juego.routes";
 import rolRoutes from "./rol.routes";
 import usuarioRoutes from "./usuario.routes";
 import sorteoRoutes from "./sorteo.routes";
-const session = require('express-session');
 const app=Express();
 
 //settings
