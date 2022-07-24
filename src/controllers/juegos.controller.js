@@ -1,3 +1,4 @@
+import { response } from "express";
 import {getConnection} from "./../database/database";
 
 const getJuegos=async(request,response)=>{
@@ -64,10 +65,22 @@ const updateJuego=async(request,response)=>{
     }
 };
 
+const nombresJuegos=async(request,response)=>{
+    try{
+        const connection=await getConnection();
+        const result=await connection.query("SELECT nombre FROM juego");
+        response.json(result);
+    }catch(error){
+        response.status(500);
+        response.send(error.message);
+    }
+}
+
 export const methods={
     getJuegos,
     getJuego,
     deleteJuego,
     updateJuego,
+    nombresJuegos,
     addJuego
 };
