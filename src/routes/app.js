@@ -7,6 +7,7 @@ import usuarioRoutes from "./usuario.routes";
 import sorteoRoutes from "./sorteo.routes";
 import torneoRoutes from "./torneos.routes";
 import loginRoutes from "./login.routes";
+import equipoRoutes from "./equipo.routes";
 const keys = require("../controllers/keys.controller")
 const app=Express();
 
@@ -34,5 +35,6 @@ app.use(usuarioRoutes);
 app.use(sorteoRoutes);
 app.use(loginRoutes);
 app.use(torneoRoutes);
+app.use(equipoRoutes);
 
 export default app;
