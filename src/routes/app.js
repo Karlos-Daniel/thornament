@@ -5,7 +5,7 @@ import juegosRoutes from "./juego.routes";
 import rolRoutes from "./rol.routes";
 import usuarioRoutes from "./usuario.routes";
 import sorteoRoutes from "./sorteo.routes";
-import torneoRoutes from "./usuario.routes";
+import torneoRoutes from "./torneos.routes";
 import loginRoutes from "./login.routes";
 const keys = require("../controllers/keys.controller")
 const app=Express();
