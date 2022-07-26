@@ -30,7 +30,8 @@ const addSorteo=async(request,response)=>{
         const {nombre,descripcion}=request.body;
         const juego ={nombre,descripcion};
         const connection=await getConnection();
-        const result = await connection.query("INSERT INTO sorteo SET ?", juego);
+        const result = await connection.query(`INSERT INTO sorteo (usuario_idusuario,nombre,descripcion) 
+        VALUE(3,"${nombre}","${descripcion}")`);
         response.json(result);
     }catch(error){
         response.status(500);

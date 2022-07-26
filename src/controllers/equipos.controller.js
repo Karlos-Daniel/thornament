@@ -29,9 +29,9 @@ const getEquipo=async(request,response)=>{
 const addEquipo=async(request,response)=>{
 
     try{
-        const {juego,nombre}=request.body;
-        
+        const {juego,nombre}=request.body;    
         const connection=await getConnection();
+        
         const result = 
             await connection.query(`INSERT INTO equipo (juego_idjuego,nombre) 
             VALUE(${juego},"${nombre}");`);    

@@ -68,7 +68,7 @@ const updateJuego=async(request,response)=>{
 const nombresJuegos=async(request,response)=>{
     try{
         const connection=await getConnection();
-        const result=await connection.query("SELECT nombre FROM juego");
+        const result=await connection.query("SELECT nombre FROM juego ORDER BY idjuego");
         response.json(result);
     }catch(error){
         response.status(500);
