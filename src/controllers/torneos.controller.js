@@ -3,7 +3,7 @@ import {getConnection} from "./../database/database";
 const getTorneos=async(request,response)=>{
     try{
         const connection=await getConnection();
-        const result=await connection.query("SELECT * FROM torneo");
+        const result=await connection.query("SELECT idtorneo, nombre, FROM torneo");
         console.log(result);
         response.json(result);
     }catch(error){
@@ -70,10 +70,23 @@ const updateTorneo=async(request,response)=>{
     }
 };
 
+const getTorneosJuegos=async(request,response)=>{
+    try{
+        const connection=await getConnection();
+        const result=await connection.query("SELECT torneo.idtorneo,torneo.nombre AS nombre_torneo,torneo.descripcion  ,juego.nombre AS nombre_juego FROM juego,torneo WHERE idjuego=juego_idjuego");
+        console.log(result);
+        response.json(result);
+    }catch(error){
+        response.status(500);
+        response.send(error.message);
+    }
+};
+
 export const methods={
     getTorneos,
     getTorneo,
     deleteTorneo,
     updateTorneo,
+    getTorneosJuegos,
     addTorneo
 };
