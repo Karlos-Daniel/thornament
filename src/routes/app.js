@@ -32,8 +32,7 @@ app.use(juegosRoutes);
 app.use(rolRoutes);
 app.use(usuarioRoutes);
 app.use(sorteoRoutes);
+app.use(loginRoutes);
 app.use(torneoRoutes);
-//app.use(loginRoutes);
-
 
 export default app;

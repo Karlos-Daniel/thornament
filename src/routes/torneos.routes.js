@@ -7,3 +7,5 @@ router.post("/crear/torneo",torneosController.addTorneo);
 router.get("buscar/torneo/:id",torneosController.getTorneo);
 router.delete("/borrar/torneo/:id",torneosController.deleteTorneo);
 router.put("/editar/torneo/:id",torneosController.updateTorneo);
+
+export default router;
