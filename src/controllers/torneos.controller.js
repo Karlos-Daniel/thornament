@@ -33,7 +33,7 @@ const addTorneo=async(request,response)=>{
         const connection=await getConnection();
         const result = 
             await connection.query(`INSERT INTO torneo (juego_idjuego,usuario_idusuario,nombre,fecha_inicio,fecha_final,descripcion) 
-            VALUE(3,${juego},"${nombre}","${fecha_inicio}","${fecha_final}","${apellido2}","${descripcion}");`);
+            VALUE(${juego},3,"${nombre}","${fecha_inicio}","${fecha_final}","${descripcion}");`);
         
     response.json(result);
     }catch(error){
