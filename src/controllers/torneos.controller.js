@@ -82,6 +82,8 @@ const getTorneosJuegos=async(request,response)=>{
     }
 };
 
+
+
 export const methods={
     getTorneos,
     getTorneo,

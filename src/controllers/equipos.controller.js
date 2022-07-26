@@ -68,11 +68,23 @@ const updateEquipo=async(request,response)=>{
         response.send(error.message);
     }
 };
+const getEquiposJuegos=async(request,response)=>{
+    try{
+        const connection=await getConnection();
+        const result=await connection.query("SELECT equipo.idequipo,equipo.nombre AS equipo_torneo,juego.nombre AS nombre_juego FROM juego,equipo WHERE idjuego=juego_idjuego");
+        console.log(result);
+        response.json(result);
+    }catch(error){
+        response.status(500);
+        response.send(error.message);
+    }
+};
 
 export const methods={
     getEquipos,
     getEquipo,
     addEquipo,
     deleteEquipo,
+    getEquiposJuegos,
     updateEquipo
 }

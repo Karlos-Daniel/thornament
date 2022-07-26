@@ -4,6 +4,7 @@ const router = Router();
 
 router.get("/equipos",equipoController.getEquipos);
 router.get("/buscar/equipo/:id",equipoController.getEquipo);
+router.get("/equipos-juegos",equipoController.getEquiposJuegos);
 router.post("/crear/equipo",equipoController.addEquipo);
 router.delete("/borrar/equipo/:id",equipoController.deleteEquipo);
 router.put("/editar/equipo/:id",equipoController.updateEquipo);
