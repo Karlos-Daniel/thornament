@@ -18,14 +18,7 @@ const app=Express();
     app.use(morgan("dev"));
     app.use(Express.json());
     app.use(cors());
-   
     app.use(Express.urlencoded({extended:false}));
-
-    // app.use(session({
-    //     secret:'mysecretkey',
-    //     resave: false,
-    //     saveUninitialized: false
-    // }))
   
 
 //Routes

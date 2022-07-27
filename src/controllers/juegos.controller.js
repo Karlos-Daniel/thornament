@@ -1,4 +1,3 @@
-import { response } from "express";
 import {getConnection} from "./../database/database";
 
 const getJuegos=async(request,response)=>{
