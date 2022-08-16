@@ -12,20 +12,32 @@ const loginUsuario=async(request,response)=>{
         const {email,contraseña} = request.body;
         const connection = await getConnection();
         const user = await connection.query(`SELECT contra FROM usuario WHERE email=?`,email);
+
+        if(user.length>0){
         const userid = await connection.query(`SELECT idusuario FROM usuario WHERE email=?`,email);
         const dataContra = user[0].contra;
         const checkContra = await unHash(contraseña,dataContra);
         console.log(checkContra)
-        if(checkContra===true && user.length>0){
+        
+        if(checkContra===true){
            const userForToken = {
             id: userid[0].idusuario
            }
            const token = jwt.sign(userForToken, process.env.SECRET)
+           
            response.send({
             token
             })
-        }
+        }else{
+            response.send({
+                "message": "Contraseña incorrecta"
+            })
+        }}
         else{
+
+            response.send({
+                "message": "Email incorrecto"
+            })
             response.status(404)
         }
         //console.log(unHash({contra: contraseña},user[0]))
@@ -65,5 +77,6 @@ const unHash = async (texto,hasheado)=>{
 }
 
 export const methods={
-    loginUsuario
+    loginUsuario,
+    token
 }
